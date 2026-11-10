@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileFlow Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2 class="logo">✦ FileFlow</h2>
+
+        <p class="menu-title">MENU</p>
+
+        <a class="active" href="#">▦ Dashboard</a>
+        <a href="#">▤ My Files</a>
+        <a href="#">◷ Recent Files</a>
+        <a href="#">♧ Shared Files</a>
+        <a href="#">☆ Favorites</a>
+        <a href="#">▧ Trash</a>
+
+        <div class="storage">
+            <p>Storage</p>
+            <h3>7.5 GB / 15 GB</h3>
+            <div class="progress">
+                <div></div>
+            </div>
+            <small>50% storage used</small>
+        </div>
+
+        <div class="profile">
+            <div class="avatar">KD</div>
+            <div>
+                <strong>Karthika Devi</strong>
+                <small>Free Plan</small>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="header">
+            <div>
+                <h1>My Files</h1>
+                <p>Manage and organize your files easily.</p>
+            </div>
+
+            <div class="header-actions">
+                <span>🔔</span>
+                <span class="avatar">KD</span>
+            </div>
+        </header>
+
+        <!-- Search and Actions -->
+        <section class="toolbar">
+            <input type="text" id="search"
+                   placeholder="🔍 Search your files...">
+
+            <select id="filter">
+                <option value="all">All Files</option>
+                <option value="pdf">PDF</option>
+                <option value="image">Images</option>
+                <option value="document">Documents</option>
+            </select>
+
+            <button class="secondary" id="folderBtn">
+                + New Folder
+            </button>
+
+            <button class="primary" id="uploadBtn">
+                ↑ Upload Files
+            </button>
+
+            <input type="file" id="fileInput" multiple hidden>
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-icon purple">▤</div>
+                <p>Total Files</p>
+                <h2 id="totalFiles">0</h2>
+                <small>Files in your workspace</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">▧</div>
+                <p>Documents</p>
+                <h2 id="documents">0</h2>
+                <small>PDF and document files</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">▣</div>
+                <p>Images</p>
+                <h2 id="images">0</h2>
+                <small>Image files</small>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">↗</div>
+                <p>Storage Used</p>
+                <h2 id="storageUsed">0 MB</h2>
+                <small>Local file storage</small>
+            </div>
+
+        </section>
+
+        <!-- File Section -->
+        <section class="file-section">
+
+            <div class="file-heading">
+                <div>
+                    <h2>All Files</h2>
+                    <p>Your recently uploaded files</p>
+                </div>
+
+                <div class="view-actions">
+                    <select id="sort">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+
+                    <button id="viewBtn">▦ Grid View</button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="fileTable">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAll"></th>
+                            <th>FILE NAME</th>
+                            <th>FILE TYPE</th>
+                            <th>SIZE</th>
+                            <th>DATE ADDED</th>
+                            <th>ACTION</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="fileList"></tbody>
+                </table>
+            </div>
+
+            <div class="empty" id="empty">
+                <div>📂</div>
+                <h3>No files found</h3>
+                <p>Upload your first file to get started.</p>
+            </div>
+
+            <div class="footer">
+                <span id="fileCount">Showing 0 files</span>
+                <button id="deleteSelected">Delete Selected</button>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
